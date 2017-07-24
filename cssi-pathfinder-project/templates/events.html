@@ -6,8 +6,29 @@
     <meta charset="utf-8">
     <title>Campus Explorer</title>
           <h1> Campus Explorer </h1>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px 100px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: #111;
+        }
+    </style>
     <div class="parallax-one"></div>
-    <div id="header">
     <style>
       .parallax-one {
           /*The image in this parallax does not want to show MUST BE FIXED!!!*/
@@ -32,6 +53,7 @@
         </p>
   </head>
   <body id = "background">
+    <div id="header">
       <h2> {{Event}} </h2>
 
   </body>
