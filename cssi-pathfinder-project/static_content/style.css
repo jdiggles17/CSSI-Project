@@ -4,7 +4,7 @@ h1{
   font-family: 'Playfair Display SC', serif;
 }
 #header {
-  ul {
+ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
