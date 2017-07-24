@@ -19,7 +19,15 @@ import webapp2
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
+class MapHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write("This is the Maps Page")
+class CreateHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write("this is the Create Events Page")
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/map', MapHandler),
+    ('/createevent', CreateHandler)
 ], debug=True)
