@@ -3,52 +3,85 @@
   <head>
     <link rel="stylesheet" href="/resouce/style.css">
     <meta charset="utf-8">
+    <div id = "background-image">
     <title>Campus Explorer</title>
   </head>
-        <div id="title"
+
+      <div id="header">
         <h1> Campus Explorer </h1>
-        </div>
+    <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: royalblue;
+            }
 
-    <div class="parallax-one"></div>
+            li {
+                float: left;
+            }
 
-    <!--<style>
-      .parallax-one {
-          /*The image in this parallax does not want to show MUST BE FIXED!!!*/
-          /* The image used */
-          background-image: url("https://lostandtaken.com/wp-content/uploads/edd/2016/02/colorful-watercolor-paint-texture-14.jpg");
+            li a {
+                display:block;
+                font-family: system-ui;
+                color: white;
+                text-align: center;
+                padding: 16px 100px;
+                text-decoration:none;
+            }
 
-          /* Set a specific height */
-          min-height: 200px;
-
-          /* Create the parallax scrolling effect */
-          background-attachment:scroll;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-    </style> -->
-
+            li a:hover {
+                background-color: darkblue;
+            }
+      </style>
         <p>
         <ul>
           <li><a href="events.html">Home</a></li>
           <li><a href="create.html">Create Events</a></li>
         </ul>
         </p>
+        <div class="parallax-one"></div>
+        <style>
+        .parallax-one{
+            /*The image in this parallax does not want to show MUST BE FIXED!!!*/
+            /* The image used */
+            background-image: url("http://zellox.com/wp-content/uploads/2016/05/website-backgrounds-%E2%80%AB1%E2%80%AC-%E2%80%AB%E2%80%AC.jpg");
 
-  <body id = "background">
+            /* Set a specific height */
+            min-height: 200px;
 
-    <div id="header">
+            /* Create the parallax scrolling effect */
+            background-attachment:scroll;
+            background-position: center;
+            background-repeat:no-repeat;
+            background-size: cover;
+          }
+        </style>
+
+    <div id="main">
       <h2> Events </h2>
+      <div class="event">
+        <ul>
+          <!-- Test to make sure that dictionary elemets are working -->
+          <li>{{event_name}}</li>
+          <li>{{date_time}}</li>
+          <li>{{email}}</li>
+          <li>{{address}}</li>
+          <li>{{user_info}}</li>
+          <li>{{tags}}</li>
+       </ul>
 
-   <ul>
-<!-- Test to make sure that dictionary elemets are working -->
-<li>{{event_name}}</li>
-<li>{{date_time}}</li>
-<li>{{email}}</li>
-<li>{{address}}</li>
-<li>{{user_info}}</li>
-<li>{{tags}}</li>
+       <div class="event">
+       <ul>
+         <!-- Test to make sure that dictionary elemets are working -->
+         <li>{{event_name}}</li>
+         <li>{{date_time}}</li>
+         <li>{{email}}</li>
+         <li>{{address}}</li>
+         <li>{{user_info}}</li>
+         <li>{{tags}}</li>
+      </ul>
 
-   </ul>
   </body>
 </html>
