@@ -79,7 +79,7 @@ class CreateHandler(webapp2.RequestHandler):
         self.response.write(template.render())
     def post(self):
         ate_and_time = datetime.datetime(self.request.get("date_test"))
-        new_event = Event(event_name = self.request.get('name_test'),date_time = date_and_time, email ="scoobydew@gmail.com",address = "3234 street name zip code", description = "here is the description", tags = ["tag1", "tag2" ,"tag3"]  )
+        new_event = Event(event_name = self.request.get('name_test'),date_time = date_and_time, email =self.request.get('email_test'),address = self.request.get('where_test'), description = self.request.get('where_test'), tags = ["tag1", "tag2" ,"tag3"]  )
         new_event_key = new_event.put()
         self.response.write('<br>')
         self.response.write('<br>')
