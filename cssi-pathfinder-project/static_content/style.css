@@ -1,3 +1,4 @@
+
 #name_event {
   text-align: column;
   width:100px;
@@ -6,8 +7,10 @@
   font-size:40px;
   border:2px solid black;
 }
+
+
 h1{
-  font-size: 5em;
+  font-size: 10em;
   text-align: center;
 }
 body {

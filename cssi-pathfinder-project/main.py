@@ -35,9 +35,22 @@ class MainHandler(webapp2.RequestHandler):
                             "tags" : "tags go here"
 
                            }
+        dummy_dictionary2 = {
+                            "event_name2" : "Mike's Movie Night-2",
+                            "date_time2" : "December 24th 2017-2",
+                            "email2" : "Mike@google.com-2",
+                            "address2" : "superfun street 923842-2",
+                        #use GeoPTProperty() when gmaps is set up
+                            "user_info2" : "joey@gmail.com-2",
+                            "description2" : "This is the description-2",
+                            "tags2" : "tags go here-2"
 
+                           }
+         master_dictionary = {"":""}
+      for term in dummy_dictionary:
+          master_dictionary.append(term)
 
-        self.response.write(template.render(dummy_dictionary))
+        self.response.write(master_dictionary)
 class MapHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write("This is the Maps Page")
