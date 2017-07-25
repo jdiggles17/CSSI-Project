@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="create.js"></link>
     <meta charset="utf-8">
     <title>Campus Explorer</title>
     <h1> Campus Explorer </h1>
     <div class="parallax-one"></div>
-    <style>
+    <!--<style>
         .parallax-one {
             /*The image in this parallax does not want to show MUST BE FIXED!!!*/
             /* The image used */
@@ -45,19 +46,30 @@
         li a:hover {
             background-color: #111;
         }
-  </style>
+  </style>-->
   </head>
   <body>
   <ul>
     <li><a class="active" href="events.html">Home</a></li>
     <li><a href="create.html">Create Events</a></li>
   </ul>
-  <h2> Create Events </h2>
+  <div id= "Create_box">
+  <h2> Create a New Event </h2>
   <div id="main">
-  <input type= "date" name = "date_test"></input>
-  <input type= "time" name= "time_test"></input>
-  <input type= "email" name="email_test"></input>
+    <h2>Date and Time</h2>
+    <input type= "date" name = "date_test"></input>
+    <input type= "time" name= "time_test"></input>
+    <h2>Email</h2>
+    <input type= "email" name="email_test"></input>
+    <h2>Name of Event</h2>
+    <input type= "name_of_event" name="name_test" id= "name_event"/>
+    <h2>Where</h2>
+    <input type= "Where" name="where_test" id= "where_event"/>
+    <h2>Description of Event</h2>
+    <input type= "description_of_event" name="description_test" id= "description_event"/>
+  </div>
   <form action= "text" method="post">
+
   <textarea name="comments" id="comments" style="width:96%;height:150px;padding:2%;font-size:1.2em;border:1px solid #6DB72C;"></textarea><br>
   <input type="submit" action = "get" value="Submit" formaction="">
   </form>

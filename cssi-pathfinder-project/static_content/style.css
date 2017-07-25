@@ -1,6 +1,16 @@
-
-
+#name_event {
+  text-align: column;
+  width:100px;
+  height:30px;
+  padding:25px;
+  font-size:40px;
+  border:2px solid black;
+}
 h1{
   font-size: 5em;
   text-align: center;
+}
+body {
+  text-align: center;
+  text-align: column;
 }
