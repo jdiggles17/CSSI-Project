@@ -17,6 +17,7 @@
 import webapp2
 import jinja2
 from data_classes import Event
+import datetime
 
 env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
@@ -46,16 +47,26 @@ class MainHandler(webapp2.RequestHandler):
                             "tags2" : "tags go here-2"
 
                            }
-         master_dictionary = {"":""}
-      for term in dummy_dictionary:
-          master_dictionary.append(term)
+        master_dictionary = {"":""}
+        master_dictionary.update(dummy_dictionary2)
+        master_dictionary.update(dummy_dictionary)
 
         self.response.write(master_dictionary)
+        date_and_time = datetime.datetime(2017,3,22,3,30)
+        new_event = Event(event_name = "mike's pool",date_time = date_and_time, email ="scoobydew@gmail.com",address = "3234 street name zip code", description = "here is the description", tags = ["tag1", "tag2" ,"tag3"]  )
+        new_event_key = new_event.put()
+        self.response.write('<br>')
+        self.response.write('<br>')
+        self.response.write('<br>')
+        self.response.write(new_event_key.get())
 class MapHandler(webapp2.RequestHandler):
+    def post(self):
+        pass
     def get(self):
         self.response.write("This is the Maps Page")
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
+        template = env.get_template('events.html')
         # new_event = Event( event_name = self.request.get('name'),
         #                    date = self.request.get('date'),
         #                    time = self.request.get('time'),
@@ -65,7 +76,7 @@ class CreateHandler(webapp2.RequestHandler):
         #                    description = self.request.get('description'),
         #                    tags = self.request.get('tag')
 
-        self.response.write("this is the Create Events Page")
+        self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
