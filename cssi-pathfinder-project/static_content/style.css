@@ -7,7 +7,9 @@
   font-size:40px;
   border:2px solid black;
 }
-
+#Title{
+  font-size: 75px;
+}
 
 h1{
   text-align: center;

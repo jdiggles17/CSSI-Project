@@ -5,79 +5,40 @@
     <link rel="stylesheet" href="resources/create.js"></link>
     <meta charset="utf-8">
     <title>Campus Explorer</title>
-    <h1> Campus Explorer </h1>
-    <div class="parallax-one"></div>
-    <!--<style>
-        .parallax-one {
-            /*The image in this parallax does not want to show MUST BE FIXED!!!*/
-            /* The image used */
-            background-image: url("https://lostandtaken.com/wp-content/uploads/edd/2016/02/colorful-watercolor-paint-texture-14.jpg");
-
-            /* Set a specific height */
-            min-height: 200px;
-
-            /* Create the parallax scrolling effect */
-            background-attachment:scroll;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 16px 100px;
-            text-decoration: none;
-        }
-
-        li a:hover {
-            background-color: #111;
-        }
-  </style>-->
+    <div id="Title">
+      <h1> Campus Explorer </h1>
+    </div>
   </head>
   <body>
   <ul>
     <li><a class="active" href="events.html">Home</a></li>
     <li><a href="create.html">Create Events</a></li>
   </ul>
-  <div id= "Create_box">
-  <h2> Create a New Event </h2>
-  <div id="main">
 
-    <h2>Date and Time</h2>
-    <input type= "date" name = "date_test"></input>
-    <input type= "time" name= "time_test"></input>
-    <h2>Email</h2>
-    <input type= "email" name="email_test"></input>
-    <h2>Name of Event</h2>
-    <input type= "name_of_event" name="name_test" id= "name_event"/>
-    <h2>Where</h2>
-    <input type= "Where" name="where_test" id= "where_event"/>
-    <h2>Description of Event</h2>
-    <input type= "description_of_event" name="description_test" id= "description_event"/>
-  </div>
-  <form action= "text" method="post">
 
 
   <form>
-  <input type= "date" name = "date_test"></input>
-  <input type= "time" name= "time_test"></input>
-  <input type= "email" name="email_test"></input>
 
-  <textarea name="comments" id="comments" style="width:96%;height:150px;padding:2%;font-size:1.2em;border:1px solid #6DB72C;"></textarea><br>
+    <div id= "Create_box">
+    <h2> Create a New Event </h2>
+    <div id="main">
+
+      <h2>Date and Time</h2>
+      <input type= "date" name = "date_test"></input>
+      <input type= "time" name= "time_test"></input>
+      <h2>Email</h2>
+      <input type= "email" name="email_test"></input>
+      <h2>Name of Event</h2>
+      <input type= "name_of_event" name="name_test" id= "name_event"/>
+      <h2>Where</h2>
+      <input type= "Where" name="where_test" id= "where_event"/>
+      <h2>Description of Event</h2>
+      <input type= "description_of_event" name="description_test" id= "description_event"/>
+      <button id="add_event">Add New Event</button>
+      <button id="remove_event">Remove Event</button>
+    </div>
+  </div>
+
   <input type="submit" action = "get" value="Submit" formaction="">
   </form>
   </body>
