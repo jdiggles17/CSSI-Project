@@ -21,6 +21,7 @@ from data_classes import Event
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        event_list = Event.query().order(date_time)
 
         self.response.write('Hello world!')
 class MapHandler(webapp2.RequestHandler):
@@ -28,16 +29,14 @@ class MapHandler(webapp2.RequestHandler):
         self.response.write("This is the Maps Page")
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
-        new_event = Event( event_name = self.request.get('name'),
-                           date = self.request.get('date'),
-                           time = self.request.get('time'),
-                           email = self.request.get('email'),
-                           address = self.request.get('address'),
-                           user = self.request.get('username'),
-                           description = self.request.get('description'),
-                           tags = self.request.get('tag')
-
-        )
+        # new_event = Event( event_name = self.request.get('name'),
+        #                    date = self.request.get('date'),
+        #                    time = self.request.get('time'),
+        #                    email = self.request.get('email'),
+        #                    address = self.request.get('address'),
+        #                    user = self.request.get('username'),
+        #                    description = self.request.get('description'),
+        #                    tags = self.request.get('tag')
 
         self.response.write("this is the Create Events Page")
 
