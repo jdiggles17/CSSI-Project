@@ -1,6 +1,9 @@
-
-h1{
-  font-size: 5em;
-  text-align: center;
-  font-family: 'Playfair Display SC', serif;
+#title h1 {
+  text-align: right;
+  font-size: 75px;
+}
+body{
+  background-image: url("https://lostandtaken.com/wp-content/uploads/edd/2016/02/colorful-watercolor-paint-texture-14.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
 }
