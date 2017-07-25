@@ -18,26 +18,39 @@ import webapp2
 import jinja2
 from data_classes import Event
 
+env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        #event_list = Event.query().order(date_time)
+        template = env.get_template('events.html')
+        dummy_dictionary = {
+                            "event_name" : "Mike's Movie Night",
+                            "date_time" : "December 24th 2017",
+                            "email" : "Mike@google.com",
+                            "address" : "superfun street 923842",
+                        #use GeoPTProperty() when gmaps is set up
+                            "user_info" : "joey@gmail.com",
+                            "description" : "This is the description",
+                            "tags" : "tags go here"
 
-        self.response.write('Hello world!')
+                           }
+
+
+        self.response.write(template.render(dummy_dictionary))
 class MapHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write("This is the Maps Page")
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
-        new_event = Event( event_name = self.request.get('name'),
-                           date = self.request.get('date'),
-                           time = self.request.get('time'),
-                           email = self.request.get('email'),
-                           address = self.request.get('address'),
-                           user = self.request.get('username'),
-                           description = self.request.get('description'),
-                           tags = self.request.get('tag')
-
-        )
+        # new_event = Event( event_name = self.request.get('name'),
+        #                    date = self.request.get('date'),
+        #                    time = self.request.get('time'),
+        #                    email = self.request.get('email'),
+        #                    address = self.request.get('address'),
+        #                    user = self.request.get('username'),
+        #                    description = self.request.get('description'),
+        #                    tags = self.request.get('tag')
 
         self.response.write("this is the Create Events Page")
 
