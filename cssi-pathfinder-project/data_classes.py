@@ -10,7 +10,7 @@ class user(ndb.Model):
 
 class Event(ndb.Model):
     event_name = ndb.StringProperty()
-    date_time = ndb.KeyProperty(date_time)
+    date_time = ndb.KeyProperty(date_and_time)
     email = ndb.StringProperty()
     address = ndb.KeyProperty(location)
     #use GeoPTProperty() when gmaps is set up
