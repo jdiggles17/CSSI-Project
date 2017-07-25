@@ -66,7 +66,7 @@ class MapHandler(webapp2.RequestHandler):
         self.response.write("This is the Maps Page")
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
-        template = env.get_template('events.html')
+        template = env.get_template('create.html')
         # new_event = Event( event_name = self.request.get('name'),
         #                    date = self.request.get('date'),
         #                    time = self.request.get('time'),
