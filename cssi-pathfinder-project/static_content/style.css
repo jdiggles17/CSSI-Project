@@ -10,9 +10,9 @@
 
 
 h1{
-  font-size: 10em;
   text-align: center;
 }
+
 body {
   text-align: center;
   text-align: column;
@@ -53,3 +53,7 @@ body {
     li a:hover {
         background-color: #111;
     }
+
+#background-image{
+  background-image: url("http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSwatches_1400x900.jpg");
+}
