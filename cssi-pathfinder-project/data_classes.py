@@ -5,7 +5,8 @@ class Event(ndb.Model):
     date = ndb.DateProperty()
     time = ndb.TimeProperty()
     email = ndb.StringProperty()
-    address = ndb.GeoPTProperty()
+    address = ndb.StringProperty()
+    #use GeoPTProperty() when gmaps is set up
     user = ndb.StringProperty()
     description = ndb.StringProperty()
     tags = ndb.StringProperty(repeated = True)

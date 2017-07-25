@@ -18,14 +18,27 @@ import webapp2
 import jinja2
 from data_classes import Event
 
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+
         self.response.write('Hello world!')
 class MapHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write("This is the Maps Page")
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
+        new_event = Event( event_name = self.request.get('name'),
+                           date = self.request.get('date'),
+                           time = self.request.get('time'),
+                           email = self.request.get('email'),
+                           address = self.request.get('address'),
+                           user = self.request.get('username'),
+                           description = self.request.get('description'),
+                           tags = self.request.get('tag')
+
+        )
+
         self.response.write("this is the Create Events Page")
 
 app = webapp2.WSGIApplication([
