@@ -95,6 +95,11 @@ class MapHandler(webapp2.RequestHandler):
         template = env.get_template('map.html')
 
         self.response.write(template.render())
+        if self.request.get('type') == "address":
+                    new_address_record = AddressRequest(where_test = self.request.get('where_event'))
+                    new_address_record.put()
+                else:
+                    logging.error("Malformed Request!")
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
         template = env.get_template('create.html')
