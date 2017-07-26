@@ -57,10 +57,6 @@ body {
           background-color: darkblue;
       }
 
-#background{
-  background-image: url("http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSwatches_1400x900.jpg");
-}
-
 .event li {
   list-style-position: outside;
   background-color: white;

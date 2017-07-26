@@ -56,6 +56,7 @@ class MainHandler(webapp2.RequestHandler):
         date_and_time = datetime.datetime(2017,3,22,3,30)
         new_event = Event(event_name = "mike's pool",date_time = date_and_time, email ="scoobydew@gmail.com",address = "3234 street name zip code", description = "here is the description", tags = ["tag1", "tag2" ,"tag3"]  )
         new_event_key = new_event.put()
+
         self.response.write('<br>')
         self.response.write('<br>')
         self.response.write('<br>')
@@ -77,6 +78,12 @@ class MainHandler(webapp2.RequestHandler):
                                description = self.request.get('description_test'),
                                tags = ['tag1','tag2'])
         logging.info(new_event)
+        new_event_key = new_event.put()
+        #add query here'
+        data_search = Event.query(date_time>datetime.datetime.now()).sort("date_time")
+        data_results = data_search.fetch(limit = 4)
+        logging.info(dataresults)
+
         template = env.get_template('events.html')
         self.response.write(new_event)
         self.response.write(template.render())

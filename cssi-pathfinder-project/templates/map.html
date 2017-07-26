@@ -8,12 +8,28 @@
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
+       #map {
         height:100%;
-        width: 100%;
+        width: 50%;
         float: right;
       }
       /* Optional: Makes the sample page fill the window. */
+      h1{
+        font-size: 40px;
+        text-align: center;
+        text-shadow: 3px 3px gray;
+      }
+      #main{
+        float:left;
+      }
+      .flex-container {
+          display: -webkit-flex;
+          display: flex;
+          flex-direction:row;
+          width: auto;
+          height: auto;
+          background-color: lightsteelblue;
+      }
       html, body {
         height: 100%;
         margin: 0;
@@ -89,12 +105,31 @@
     </style>
   </head>
   <body>
-    <h1>Hello</h1>
+    <h1>Campus Explorer</h1>
     <ul>
       <li><a href="..">Home</a></li>
       <li><a href="">Map</a></li>
       <li><a href="../createevent">Create Events</a></li>
     </ul>
+    <div id="main">
+      <h2> Events </h2>
+        <div class="flex-container">
+          <div class="flex-item">
+            <p><h3>Event: </h3>{{event_name}}</p>
+              <p><h3>Date: </h3>{{date_time}}</p>
+              <p><h3>Contact: </h3>{{email}}</p>
+              <p><h3>Address: </h3>{{address}}</p>
+              <p><h3>Creator Of Event: </h3>{{user_info}}</p>
+          </div>
+          <div class="flex-item">
+              <p><h3>Event: </h3>{{event_name}}</p>
+              <p><h3>Date: </h3>{{date_time}}</p>
+              <p><h3>Contact: </h3>{{email}}</p>
+              <p><h3>Address: </h3>{{address}}</p>
+              <p><h3>Creator Of Event: </h3>{{user_info}}</p>
+            </div>
+          </div>
+      </div>
     <style>
     ul {
         list-style-type: none;
@@ -247,5 +282,5 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs70-evsUcwiTcuIV1S3TawOfTlce4U4o&libraries=places&callback=initMap"
         async defer></script>
-  </body> -->
+  </body>
 </html>
