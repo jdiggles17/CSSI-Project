@@ -60,21 +60,29 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write('<br>')
         self.response.write('<br>')
         self.response.write(new_event_key.get())
+        self.response.write(template.render())
     def post(self):
         logging.info(self.request.get("date_test"))
         logging.info(self.request.get("time_test"))
-        d = datetime.datetime.strptime( self.request.get("date_test"), self.request.get("time_test"), "%Y-%m-%d %H:%M" )
+        d = datetime.datetime.strptime( (self.request.get("date_test")+ " " + self.request.get("time_test")), "%Y-%m-%d %H:%M" )
         logging.info(d)
         new_event = Event(     event_name = self.request.get('name_test'),
                                date_time = d,
 
                                email = self.request.get('email_test'),
                                address = self.request.get('address_test'),
-                               user_latitude = self.request.get('latitude_test'),
-                               user_longitude = self.request.get('longitude_test'),
+                               user_latitude = float(self.request.get('latitude_test')),
+                               user_longitude = float(self.request.get('longitude_test')),
                               # user = self.request.get('username'),
                                description = self.request.get('description_test'),
-                               tags = self.request.get(['tag1','tag2']))
+                               tags = ['tag1','tag2'])
+        logging.info(new_event)
+        template = env.get_template('events.html')
+        self.response.write(new_event)
+        self.response.write(template.render())
+
+
+
 class MapHandler(webapp2.RequestHandler):
     def post(self):
         pass
