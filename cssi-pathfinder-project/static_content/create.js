@@ -2,8 +2,10 @@ function createNewEvent() {
   $('#remove_event').on('click' , remove_last_event);
 }
 function associate_events(  ) {
-$('#submit_button').click(interrupt_submit)
-console.log('ready')
+  $('#remove_event').on('click', remove_last_event);
+  $('#add_event').on('click', add_event);
+  $('#submit_button').click(interrupt_submit)
+  console.log('ready')
 }
 
 $(document).ready(
@@ -12,7 +14,7 @@ $(document).ready(
 );
 function remove_last_event(event) {
   console.log("last event was removed");
-  $('#main').eq(-1);
+  $('#main').eq(-1).remove();
 }
 
 function add_event(event) {
@@ -22,7 +24,8 @@ function add_event(event) {
 }
 
 function interrupt_submit(event){
-  console.log("submit inturrupted")
+  
+  console.log("New Event Form has been submitted")
 
   return false
 }
