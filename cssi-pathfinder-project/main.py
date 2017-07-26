@@ -84,10 +84,10 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class MapHandler(webapp2.RequestHandler):
-    def post(self):
-        pass
     def get(self):
-        self.response.write("This is the Maps Page")
+        template = env.get_template('map.html')
+
+        self.response.write(template.render())
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
         template = env.get_template('create.html')
