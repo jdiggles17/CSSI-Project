@@ -18,6 +18,7 @@ import webapp2
 import jinja2
 from data_classes import Event
 import datetime
+import logging
 
 env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
@@ -59,6 +60,11 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write('<br>')
         self.response.write('<br>')
         self.response.write(new_event_key.get())
+    def post(self):
+        logging.info(self.request.get("date_test"))
+        logging.info(self.request.get("time_test"))
+        d = datetime.datetime.strptime( self.request.get("date_test") + " " + self.request.get("time_test"), "%Y-%m-%d %H:%M" )
+        logging.info(d)
 class MapHandler(webapp2.RequestHandler):
     def post(self):
         pass
