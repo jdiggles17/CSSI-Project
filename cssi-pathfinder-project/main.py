@@ -70,9 +70,10 @@ class MainHandler(webapp2.RequestHandler):
 
                                email = self.request.get('email_test'),
                                address = self.request.get('address_test'),
-                               user = self.request.get('username'),
-                               description = self.request.get('description'),
-                               tags = self.request.get('tag')
+                               lat_long = self.request.get('latitude_test'), self.request.get('longitude_test')
+                              # user = self.request.get('username'),
+                               description = self.request.get('description_test'),
+                               tags = self.request.get(['tag1','tag2'])
 class MapHandler(webapp2.RequestHandler):
     def post(self):
         pass
