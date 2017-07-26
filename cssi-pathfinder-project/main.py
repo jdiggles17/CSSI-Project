@@ -65,6 +65,14 @@ class MainHandler(webapp2.RequestHandler):
         logging.info(self.request.get("time_test"))
         d = datetime.datetime.strptime( self.request.get("date_test") + " " + self.request.get("time_test"), "%Y-%m-%d %H:%M" )
         logging.info(d)
+        new_event = Event(     event_name = self.request.get('name_test'),
+                               date_time = d,
+
+                               email = self.request.get('email_test'),
+                               address = self.request.get('address_test'),
+                               user = self.request.get('username'),
+                               description = self.request.get('description'),
+                               tags = self.request.get('tag')
 class MapHandler(webapp2.RequestHandler):
     def post(self):
         pass
@@ -73,14 +81,7 @@ class MapHandler(webapp2.RequestHandler):
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
         template = env.get_template('create.html')
-        # new_event = Event( event_name = self.request.get('name'),
-        #                    date = self.request.get('date'),
-        #                    time = self.request.get('time'),
-        #                    email = self.request.get('email'),
-        #                    address = self.request.get('address'),
-        #                    user = self.request.get('username'),
-        #                    description = self.request.get('description'),
-        #                    tags = self.request.get('tag')
+
 
         self.response.write(template.render())
     def post(self):
