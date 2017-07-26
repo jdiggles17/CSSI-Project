@@ -17,7 +17,7 @@ padding: 1px 1px 1px 1px;
 border: 2px solid black;
 }
 /* still doesn't work in home */
-#main_page h1{
+#main_page{
   font-size: 30px;
   text-align: center;
   text-shadow: #C8C8C8
