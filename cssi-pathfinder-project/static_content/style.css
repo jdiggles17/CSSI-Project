@@ -25,41 +25,45 @@ body {
   text-align: column;
 }
 
-    .parallax-one {
-        /*The image in this parallax does not want to show MUST BE FIXED!!!*/
-        /* The image used */
-        background-image: url("https://lostandtaken.com/wp-content/uploads/edd/2016/02/colorful-watercolor-paint-texture-14.jpg");
+.parallax-one{
+    /*The image in this parallax does not want to show MUST BE FIXED!!!*/
+    /* The image used */
+    background-image: url("http://zellox.com/wp-content/uploads/2016/05/website-backgrounds-%E2%80%AB1%E2%80%AC-%E2%80%AB%E2%80%AC.jpg");
 
-        /* Set a specific height */
-        min-height: 200px;
+    /* Set a specific height */
+    min-height: 200px;
 
-        /* Create the parallax scrolling effect */
-        background-attachment:scroll;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+    /* Create the parallax scrolling effect */
+    background-attachment:scroll;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+  }
+
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: royalblue;
       }
 
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-    }
-    li {
-        float: left;
-    }
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 16px 100px;
-        text-decoration: none;
-    }
-    li a:hover {
-        background-color: #111;
-    }
+      li {
+          float: left;
+      }
+
+      li a {
+          display:block;
+          font-family: system-ui;
+          color: white;
+          text-align: center;
+          padding: 16px 100px;
+          text-decoration:none;
+      }
+
+      li a:hover {
+          background-color: darkblue;
+      }
 
 #background{
   background-image: url("http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSwatches_1400x900.jpg");

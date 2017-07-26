@@ -10,7 +10,30 @@
         <div id="main_page">
         <h1> Campus Explorer </h1>
         </div>
-    <style>
+        <p>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="map">Map</a></li>
+          <li><a href="createevent">Create Events</a></li>
+        </ul>
+        <style>
+            .flex-container {
+                display: -webkit-flex;
+                display: flex;
+                flex-direction:column;
+                width: auto;
+                height: auto;
+                background-color: lightsteelblue;
+            }
+
+            .flex-item {
+                background-color: lavenderblush;
+                width: auto;
+                height: auto;
+                margin: 50px;
+                padding-left: 10px;
+            }
+
             ul {
                 list-style-type: none;
                 margin: 0;
@@ -35,49 +58,9 @@
             li a:hover {
                 background-color: darkblue;
             }
-      </style>
-        <p>
-        <ul>
-          <li><a href="events.html">Home</a></li>
-          <li><a href="map.html">Map</a></li>
-          <li><a href="create.html">Create Events</a></li>
-        </ul>
-        <style>
-            .flex-container {
-                display: -webkit-flex;
-                display: flex;
-                flex-direction:column;
-                width: auto;
-                height: auto;
-                background-color: lightsteelblue;
-            }
-
-            .flex-item {
-                background-color: lavenderblush;
-                width: auto;
-                height: auto;
-                margin: 50px;
-                padding-left: 10px;
-            }
         </style>
-                    </p>
+        </p>
         <div class="parallax-one"></div>
-        <style>
-        .parallax-one{
-            /*The image in this parallax does not want to show MUST BE FIXED!!!*/
-            /* The image used */
-            background-image: url("http://zellox.com/wp-content/uploads/2016/05/website-backgrounds-%E2%80%AB1%E2%80%AC-%E2%80%AB%E2%80%AC.jpg");
-
-            /* Set a specific height */
-            min-height: 200px;
-
-            /* Create the parallax scrolling effect */
-            background-attachment:scroll;
-            background-position: center;
-            background-repeat:no-repeat;
-            background-size: cover;
-          }
-        </style>
 
     <div id="main">
       <h2> Events </h2>
