@@ -3,11 +3,11 @@
   <head>
     <link rel="stylesheet" href="/resouce/style.css">
     <meta charset="utf-8">
-    <div id = "background-image">
+    <div id = "background"></div>
     <title>Campus Explorer</title>
   </head>
 
-        <div id="title">
+        <div id="main_page">
         <h1> Campus Explorer </h1>
         </div>
     <style>
@@ -42,7 +42,25 @@
           <li><a href="map.html">Map</a></li>
           <li><a href="create.html">Create Events</a></li>
         </ul>
-        </p>
+        <style>
+            .flex-container {
+                display: -webkit-flex;
+                display: flex;
+                flex-direction:column;
+                width: auto;
+                height: auto;
+                background-color: lightsteelblue;
+            }
+
+            .flex-item {
+                background-color: lavenderblush;
+                width: auto;
+                height: auto;
+                margin: 50px;
+                padding-left: 10px;
+            }
+        </style>
+                    </p>
         <div class="parallax-one"></div>
         <style>
         .parallax-one{
@@ -63,22 +81,23 @@
 
     <div id="main">
       <h2> Events </h2>
-      <div class="event">
-          <!-- Test to make sure that dictionary elemets are working -->
-        <ul>
-          <ol><li><p><h3>Event: </h3>{{event_name}}</p>
-          <p><h3>Date: </h3>{{date_time}}</p>
-          <p><h3>Contact: </h3>{{email}}</p>
-          <p><h3>Address: </h3>{{address}}</p>
-          <p><h3>Creator Of Event: </h3>{{user_info}}</p>
-          <p><h3>Tags: </h3>{{tags}}</p><br></li>
-           <!-- Test to make sure that dictionary elemets are working -->
-          <li><p><h3>Event: </h3>{{event_name}}</p>
-          <p><h3>Date: </h3>{{date_time}}</p>
-          <p><h3>Contact: </h3>{{email}}</p>
-          <p><h3>Address: </h3>{{address}}</p>
-          <p><h3>Creator Of Event: </h3>{{user_info}}</p>
-          <p><h3>Tags: </h3>{{tags}}</p></li></ol>
-        </ul>
+        <div class="flex-container">
+          <div class="flex-item">
+            <p><h3>Event: </h3>{{event_name}}</p>
+              <p><h3>Date: </h3>{{date_time}}</p>
+              <p><h3>Contact: </h3>{{email}}</p>
+              <p><h3>Address: </h3>{{address}}</p>
+              <p><h3>Creator Of Event: </h3>{{user_info}}</p>
+              <p><h3>Tags: </h3>{{tags}}</p><br></li>
+          </div>
+          <div class="flex-item">
+              <p><h3>Event: </h3>{{event_name}}</p>
+              <p><h3>Date: </h3>{{date_time}}</p>
+              <p><h3>Contact: </h3>{{email}}</p>
+              <p><h3>Address: </h3>{{address}}</p>
+              <p><h3>Creator Of Event: </h3>{{user_info}}</p>
+              <p><h3>Tags: </h3>{{tags}}</p><br></li>
+          </div>
+        </div>
   </body>
 </html>

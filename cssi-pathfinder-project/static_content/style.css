@@ -59,11 +59,15 @@ body {
         background-color: #111;
     }
 
-#background-image{
+#background{
   background-image: url("http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSwatches_1400x900.jpg");
 }
 
 .event li {
   list-style-position: outside;
   background-color: white;
+}
+#main_page{
+  font-size: 50px;
+  text-align: center;
 }
