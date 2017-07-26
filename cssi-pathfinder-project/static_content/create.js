@@ -16,12 +16,13 @@ function remove_last_event(event) {
 }
 
 function add_event(event) {
+  new_event = $("#main").append(new_item);
   console.log("new event has been added");
   $('#main').append();
 }
 
 function interrupt_submit(event){
   console.log("submit inturrupted")
-  
+
   return false
 }
