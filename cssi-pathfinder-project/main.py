@@ -26,6 +26,7 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         #event_list = Event.query().order(date_time)
         template = env.get_template('events.html')
+        data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }
         dummy_dictionary = {
                             "event_name" : "Mike's Movie Night",
                             "date_time" : "December 24th 2017",
@@ -67,7 +68,7 @@ class MainHandler(webapp2.RequestHandler):
         logging.info(self.request.get("time_test"))
         d = datetime.datetime.strptime( (self.request.get("date_test")+ " " + self.request.get("time_test")), "%Y-%m-%d %H:%M" )
         logging.info(d)
-        new_event = Event(     event_name = self.request.get('name_test'),
+        new_event = Events(     event_name = self.request.get('name_test'),
                                date_time = d,
 
                                email = self.request.get('email_test'),
@@ -82,11 +83,11 @@ class MainHandler(webapp2.RequestHandler):
         #add query here'
         data_search = Event.query(date_time>datetime.datetime.now()).sort("date_time")
         data_results = data_search.fetch(limit = 4)
-        logging.info(dataresults)
+        logging.info(data_results)
 
         template = env.get_template('events.html')
         self.response.write(new_event)
-        self.response.write(template.render())
+        self.response.write(template.render({'events' : data_results}))
 
 
 

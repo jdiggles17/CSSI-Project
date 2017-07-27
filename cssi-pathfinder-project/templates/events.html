@@ -82,22 +82,26 @@
     <div id="main">
       <h2> Events </h2>
         <div class="flex-container">
-          <div class="flex-item">
-            <p><h3>Event: </h3>{{event_name}}</p>
-              <p><h3>Date: </h3>{{date_time}}</p>
-              <p><h3>Contact: </h3>{{email}}</p>
-              <p><h3>Address: </h3>{{address}}</p>
-              <p><h3>Creator Of Event: </h3>{{user_info}}</p>
-              <p><h3>Tags: </h3>{{tags}}</p><br></li>
-          </div>
-          <div class="flex-item">
-              <p><h3>Event: </h3>{{event_name}}</p>
-              <p><h3>Date: </h3>{{date_time}}</p>
-              <p><h3>Contact: </h3>{{email}}</p>
-              <p><h3>Address: </h3>{{address}}</p>
-              <p><h3>Creator Of Event: </h3>{{user_info}}</p>
-              <p><h3>Tags: </h3>{{tags}}</p><br></li>
-          </div>
+          <form method="post" id="address_form" class="user_form">
+            <label>Or would you prefer to use an address?</label>
+
+
+              % for event in events %
+              <div class="flex-item">
+                <p><h3>Event: </h3>{{ event.event_name}}</p>
+                  <p><h3>Date: </h3>{{event.date_time}}</p>
+                  <p><h3>Contact: </h3>{{event.email}}</p>
+                  <p><h3>Address: </h3>{{event.address}}</p>
+                  <input id="address_list" name="address_list" type="text" value="{{event.address}}"/>
+                  <!--<p><h3>Creator Of Event: </h3>{{event.user_info}}</p>-->
+                  <!--<p><h3>Tags: </h3>{{event.tags}}</p><br></li>-->
+              </div>
+              %  endfor %
+            </form>
+          ##
+          ##  data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }
+          ##   .render(data)
+          ##
         </div>
     </div>
   </body>
