@@ -39,7 +39,6 @@
       }
       .flex-item{
         background-color: gray;
-        
         border: 2px solid black;
       }
       body{
@@ -133,15 +132,7 @@
     <div id="main">
       <h2> Events Around UC Irvine! </h2>
         <div class="flex-container">
-          <div class="flex-item">
-            <p><h3>Event: </h3>{{event.event_name}}</p>
-              <p><h3>Date: </h3>{{event.date_time}}</p>
-              <p><h3>Contact: </h3>{{event.email}}</p>
-              <p><h3>Address: </h3>{{event.address}}</p>
-              <!-- <p><h3>Creator Of Event: </h3>{{user_info}}</p> -->
-              <p><h3>Latitude: </h3>{{event.user_latitude}}</p>
-              <p><h3>Longitude: </h3>{{event.user_longitude}}</p>
-          </div>
+
             {% for single_event in events %}
           <br>
 
@@ -293,8 +284,8 @@ function initMap() {
 
             	var locations = [];
               console.log(locations)
-                {% for location in events %}
-                locations.push([{{location.user_latitude}},{{location.user_longitude}} ]);
+                {% for location in location_list %}
+                locations.push([{{location.lat}},{{location.long}} ]);
                 console.log(locations)
                 {% endfor %}
 
