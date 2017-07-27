@@ -15,6 +15,9 @@
         float: right;
       }
       /* Optional: Makes the sample page fill the window. */
+      h2{
+        text-align: center;
+      }
       h1{
         font-size: 40px;
         text-align: center;
@@ -22,14 +25,27 @@
       }
       #main{
         float:left;
+        text-align: center;
       }
       .flex-container {
-          display: -webkit-flex;
-          display: run-in;
-          flex-direction:row;
-          width: auto;
+          border: 10px solid black;
+          /*display: -webkit-flex;*/
+          /*display: run-in;*/
+          /*flex-direction:row;*/
+          width: 250%;
           height: auto;
-          background-color: lightsteelblue;
+          /*background-color: skyblue;*/
+
+      }
+      .flex-item{
+        background-color: gray;
+        
+        border: 2px solid black;
+      }
+      body{
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/88/UCI_Anteaters_logo.png');
+        padding-top: 500px;
+        background-size:500px 600px;
       }
       html, body {
         height: 100%;
@@ -115,16 +131,16 @@
       <li><a href="../createevent">Create Events</a></li>
     </ul>
     <div id="main">
-      <h2> Events </h2>
+      <h2> Events Around UC Irvine! </h2>
         <div class="flex-container">
           <div class="flex-item">
             <p><h3>Event: </h3>{{event.event_name}}</p>
               <p><h3>Date: </h3>{{event.date_time}}</p>
               <p><h3>Contact: </h3>{{event.email}}</p>
               <p><h3>Address: </h3>{{event.address}}</p>
-              <p><h3>Creator Of Event: </h3>{{user_info}}</p>
-              <p><h3>Creator Of Event: </h3>{{event.user_latitude}}</p>
-              <p><h3>Creator Of Event: </h3>{{event.user_longitude}}</p>
+              <!-- <p><h3>Creator Of Event: </h3>{{user_info}}</p> -->
+              <p><h3>Latitude: </h3>{{event.user_latitude}}</p>
+              <p><h3>Longitude: </h3>{{event.user_longitude}}</p>
           </div>
             {% for single_event in events %}
           <br>
@@ -134,7 +150,7 @@
               <p><h3>Date: </h3>{{single_event.date_time}}</p>
               <p><h3>Contact: </h3>{{single_event.email}}</p>
               <p><h3>Address: </h3>{{single_event.address}}</p>
-              <p><h3>Creator Of Event: </h3>{{user_info}}</p>
+              <!-- <p><h3>Creator Of Event: </h3>{{user_info}}</p> -->
               <p><h3>Latitude: </h3>{{single_event.user_latitude}}</p>
               <p><h3>Longitude: </h3>{{single_event.user_longitude}}</p>
               <!-- <input id="address_list" name="address_list" type="text" value="{{event.address}}"/> -->
@@ -143,13 +159,13 @@
           </div>
 
             {%  endfor %}
-          <div class="flex-item">
+          <!-- <div class="flex-item">
               <p><h3>Event: </h3>{{event_name}}</p>
               <p><h3>Date: </h3>{{date_time}}</p>
               <p><h3>Contact: </h3>{{email}}</p>
               <p><h3>Address: </h3>{{address}}</p>
               <p><h3>Creator Of Event: </h3>{{user_info}}</p>
-            </div>
+            </div> -->
 
           </div>
       </div>
@@ -180,10 +196,11 @@
     }
     .flex-container{
       flex-direction: column;
+      padding-left: 20px;
 
     }
     </style>
-    <div class="pac-card" id="pac-card">
+    <!-- <div class="pac-card" id="pac-card">
       <div>
         <div id="title">
           Autocomplete search
@@ -210,7 +227,7 @@
         <input id="pac-input" type="text"
             placeholder="Enter a location">
       </div>
-    </div>
+    </div> -->
     <div id="map"></div>
     <div id="infowindow-content">
       <img src="" width="16" height="16" id="place-icon">
