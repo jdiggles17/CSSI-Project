@@ -60,9 +60,9 @@ class MainHandler(webapp2.RequestHandler):
         master_dictionary.update(dummy_dictionary)
 
         #self.response.write(master_dictionary)
-        date_and_time = datetime.datetime(2017,3,22,3,30)
-        new_event = Event(event_name = "mike's pool",date_time = date_and_time, email ="scoobydew@gmail.com",address = "3234 street name zip code", description = "here is the description", tags = ["tag1", "tag2" ,"tag3"]  )
-        new_event_key = new_event.put()
+        # date_and_time = datetime.datetime(2017,3,22,3,30)
+        # new_event = Event(event_name = "mike's pool",date_time = date_and_time, email ="scoobydew@gmail.com",address = "3234 street name zip code", description = "here is the description", tags = ["tag1", "tag2" ,"tag3"]  )
+        # new_event_key = new_event.put()
 
         # self.response.write('<br>')
         # self.response.write('<br>')
@@ -116,12 +116,16 @@ class MainHandler(webapp2.RequestHandler):
 class MapHandler(webapp2.RequestHandler):
     def get(self):
         template = env.get_template('map.html')
-        event_list = Event.query()
+
+
+        event_list = Event.future_event_query(datetime.datetime.now())
         single_event = event_list.get()
         list_of_events = event_list.fetch(limit = 5)
+
+
+        print list_of_events
         event_dictionary = {"event": single_event,
                             "events": list_of_events
-
                             }
         logging.info(list_of_events)
         self.response.write(template.render(event_dictionary))

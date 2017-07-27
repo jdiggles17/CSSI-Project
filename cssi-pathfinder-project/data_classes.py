@@ -17,3 +17,7 @@ class Event(ndb.Model):
     #user_info = ndb.KeyProperty(user)
     description = ndb.StringProperty()
     tags = ndb.StringProperty(repeated = True)
+
+    @classmethod
+    def future_event_query(cls, now):
+        return cls.query(cls.date_time >= now).order(cls.date_time)

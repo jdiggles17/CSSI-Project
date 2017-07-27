@@ -276,8 +276,8 @@ function initMap() {
 
             	var locations = [];
               console.log(locations)
-                {% for location in location_list %}
-                locations.push([{{location.lat}},{{location.long}} ]);
+                {% for location in events %}
+                locations.push([{{location.user_latitude}},{{location.user_longitude}} ]);
                 console.log(locations)
                 {% endfor %}
 
