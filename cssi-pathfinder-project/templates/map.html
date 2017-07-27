@@ -106,7 +106,9 @@
     </style>
   </head>
   <body>
-    <h1>Campus Explorer</h1>
+    <div id="Title">
+      <h1> Campus Explorer </h1>
+    </div>
     <ul>
       <li><a href="..">Home</a></li>
       <li><a href="">Map</a></li>
@@ -141,6 +143,7 @@
               <!--<p><h3>Creator Of Event: </h3>{{event.user_info}}</p>-->
               <!--<p><h3>Tags: </h3>{{event.tags}}</p><br></li>-->
           </div>
+
             {%  endfor %}
           <div class="flex-item">
               <p><h3>Event: </h3>{{event_name}}</p>
@@ -149,6 +152,7 @@
               <p><h3>Address: </h3>{{address}}</p>
               <p><h3>Creator Of Event: </h3>{{user_info}}</p>
             </div>
+
           </div>
       </div>
     <style>

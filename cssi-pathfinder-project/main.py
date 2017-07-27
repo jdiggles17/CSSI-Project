@@ -31,6 +31,7 @@ class MainHandler(webapp2.RequestHandler):
 
 
         template = env.get_template('events.html')
+
         # data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }
         dummy_dictionary = {
                             "event_name" : "Mike's Movie Night",
