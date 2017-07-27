@@ -82,13 +82,29 @@ class MainHandler(webapp2.RequestHandler):
         logging.info(new_event)
         new_event_key = new_event.put()
         #add query here'
-        data_search = Event.query(date_time>datetime.datetime.now()).sort("date_time")
-        data_results = data_search.fetch(limit = 4)
-        logging.info(data_results)
+#commented out merge
+        # data_search = Event.query(new_event.date_time>datetime.datetime.now()).sort("date_time")
+        # data_results = data_search.fetch(limit = 4)
+        # logging.info(dataresults)
+        # results_dict = { "event1": data_results[0],
+        #               "event2": data_results[1],
+        #               "event3": data_results[2],
+        #               "event4": data_results[3]
+        #               }
+        # for event in results_dict:
+        #    logging.info(event)
+        #
+        # template = env.get_template('events.html')
+        # self.response.write(new_event)
+        # self.response.write(template.render())
+#         data_search = Event.query(date_time>datetime.datetime.now()).sort("date_time")
+#         data_results = data_search.fetch(limit = 4)
+#         logging.info(data_results)
+#
+#         template = env.get_template('events.html')
+#         self.response.write(new_event)
+#         self.response.write(template.render({'events' : data_results}))
 
-        template = env.get_template('events.html')
-        self.response.write(new_event)
-        self.response.write(template.render({'events' : data_results}))
 
 
 
@@ -100,7 +116,7 @@ class MapHandler(webapp2.RequestHandler):
         if self.request.get('type') == "address":
                     new_address_record = AddressRequest(where_test = self.request.get('where_event'))
                     new_address_record.put()
-                else:
+        else:
                     logging.error("Malformed Request!")
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
