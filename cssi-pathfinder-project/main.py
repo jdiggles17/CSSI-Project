@@ -26,7 +26,8 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         #event_list = Event.query().order(date_time)
         template = env.get_template('events.html')
-        data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }
+        data = {'events':[{'event_name':'email','address','date_time':}]}
+        .render(data)
         dummy_dictionary = {
                             "event_name" : "Mike's Movie Night",
                             "date_time" : "December 24th 2017",
