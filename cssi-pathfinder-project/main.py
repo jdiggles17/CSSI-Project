@@ -74,7 +74,7 @@ class MainHandler(webapp2.RequestHandler):
         logging.info(self.request.get("time_test"))
         d = datetime.datetime.strptime( (self.request.get("date_test")+ " " + self.request.get("time_test")), "%Y-%m-%d %H:%M" )
         logging.info(d)
-        new_event = Events(    event_name = self.request.get('name_test'),
+        new_event = Event(    event_name = self.request.get('name_test'),
                                date_time = d,
 
                                email = self.request.get('email_test'),
