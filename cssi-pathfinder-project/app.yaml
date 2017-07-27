@@ -1,5 +1,5 @@
-# application: cssi-pathfinder-project
-# version: 1
+application: cssi-amar-finalproject
+version: 1
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -19,3 +19,6 @@ libraries:
   version: "2.5.2"
 - name: jinja2
   version: latest
+
+skip_files:
+- ^(.*/)?Icon\r
