@@ -1,5 +1,5 @@
 markers = [];
-
+console.log("Hello is anyone there?")
 function SetCenter(center) {
   map.setCenter(center);
 }
@@ -101,9 +101,15 @@ function initialize() {
      center: { lat: -34.397, lng: 150.644},
      zoom: 8
    };
+
    map = new google.maps.Map(document.getElementById('map-canvas'),
        mapOptions);
-}
+       var marker = new google.maps.Marker({
+              position: {lat: 33.640495, lng: -117.844296},
+              map: map
+            });
+          }
+
 // The google Map frame has a number of events like any other HTML element.
 // Here we set an handler to inialize the map when the map loads. You can
 // add listeners for "click", "move" and so on...
