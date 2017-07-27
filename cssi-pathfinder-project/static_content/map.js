@@ -87,7 +87,7 @@ function CenterOnAddressList(e){
       // This is called AJAX (Asynchronous Javascript And XML).
       // We don't expect anything in return from the Server.
       $.post( "record_request", { type: "address",
-                                  address: address } );
+                                  address: where } );
       // Request sent, now while the backend stores the search, we want the map
       // to locate the requested address(es) and display them.
       GeotagAddress(address);
@@ -98,7 +98,7 @@ function CenterOnAddressList(e){
 // Initialization for the Maps APIs
 function initialize() {
    var mapOptions = {
-     center: { lat: -34.397, lng: 150.644},
+     center: { lat: 33.645556, lng: -117.8425},
      zoom: 8
    };
    map = new google.maps.Map(document.getElementById('map-canvas'),
