@@ -86,7 +86,7 @@
             <label>Or would you prefer to use an address?</label>
 
 
-              % for event in events %
+              {% for event in events %}
               <div class="flex-item">
                 <p><h3>Event: </h3>{{ event.event_name}}</p>
                   <p><h3>Date: </h3>{{event.date_time}}</p>
@@ -96,7 +96,7 @@
                   <!--<p><h3>Creator Of Event: </h3>{{event.user_info}}</p>-->
                   <!--<p><h3>Tags: </h3>{{event.tags}}</p><br></li>-->
               </div>
-              %  endfor %
+              {%  endfor %}
             </form>
           ##
           ##  data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }

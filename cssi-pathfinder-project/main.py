@@ -24,9 +24,14 @@ env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        #event_list = Event.query().order(date_time)
+        event_list = Event.query()
+        single_event = event_list.get()
+        event_dictionary = {"event": single_event}
+
+
+
         template = env.get_template('events.html')
-        data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }
+        # data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }
         dummy_dictionary = {
                             "event_name" : "Mike's Movie Night",
                             "date_time" : "December 24th 2017",
@@ -62,13 +67,13 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write('<br>')
         self.response.write('<br>')
         self.response.write(new_event_key.get())
-        self.response.write(template.render())
+        self.response.write(template.render(event_dictionary))
     def post(self):
         logging.info(self.request.get("date_test"))
         logging.info(self.request.get("time_test"))
         d = datetime.datetime.strptime( (self.request.get("date_test")+ " " + self.request.get("time_test")), "%Y-%m-%d %H:%M" )
         logging.info(d)
-        new_event = Events(     event_name = self.request.get('name_test'),
+        new_event = Events(    event_name = self.request.get('name_test'),
                                date_time = d,
 
                                email = self.request.get('email_test'),
@@ -82,7 +87,7 @@ class MainHandler(webapp2.RequestHandler):
         new_event_key = new_event.put()
         #add query here'
 #commented out merge
-        # data_search = Event.query(new_event.date_time>datetime.datetime.now()).sort("date_time")
+        #  data_search = Event.query(Event.date_time>datetime.datetime.now()).sort("date_time")
         # data_results = data_search.fetch(limit = 4)
         # logging.info(dataresults)
         # results_dict = { "event1": data_results[0],
@@ -110,8 +115,15 @@ class MainHandler(webapp2.RequestHandler):
 class MapHandler(webapp2.RequestHandler):
     def get(self):
         template = env.get_template('map.html')
+        event_list = Event.query()
+        single_event = event_list.get()
+        list_of_events = event_list.fetch(limit = 5)
+        event_dictionary = {"event": single_event,
+                            "events": list_of_events
 
-        self.response.write(template.render())
+                            }
+        logging.info(list_of_events)
+        self.response.write(template.render(event_dictionary))
         if self.request.get('type') == "address":
                     new_address_record = AddressRequest(where_test = self.request.get('where_event'))
                     new_address_record.put()
