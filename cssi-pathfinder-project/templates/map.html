@@ -4,7 +4,6 @@
 
     <title>Place Autocomplete</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-
     <meta charset="utf-8">
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -17,18 +16,22 @@
       /* Optional: Makes the sample page fill the window. */
       h2{
         text-align: center;
+        color: black;
       }
       h1{
-        font-size: 40px;
+        font-size: 60px;
+        color: Black;
         text-align: center;
         text-shadow: 3px 3px gray;
       }
       #main{
         float:left;
+
         text-align: center;
       }
       .flex-container {
           border: 10px solid black;
+          flex-direction: column;
           /*display: -webkit-flex;*/
           /*display: run-in;*/
           /*flex-direction:row;*/
@@ -38,12 +41,15 @@
 
       }
       .flex-item{
-        background-color: gray;
+        background-color: rgba(211,211,211,0.6);
+        flex-direction: column;
+        flex-flow: column;
+        /*background-color: gray;*/
         border: 2px solid black;
       }
       body{
         background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/88/UCI_Anteaters_logo.png');
-        padding-top: 500px;
+        padding-top: 1000px;
         background-size:500px 600px;
       }
       html, body {
@@ -171,17 +177,15 @@
             {% for single_event in events %}
           <br>
 
-          <div class="flex-item">
-            <<p><h3>Event: </h3>{{single_event.event_name}}</p>
+          <div class="flex-item event">
+            <p><h3>Event: </h3>{{single_event.event_name}}</p>
               <p><h3>Date: </h3>{{single_event.date_time}}</p>
               <p><h3>Contact: </h3>{{single_event.email}}</p>
               <p><h3>Address: </h3>{{single_event.address}}</p>
               <!-- <p><h3>Creator Of Event: </h3>{{user_info}}</p> -->
-              <p><h3>Latitude: </h3>{{single_event.user_latitude}}</p>
-              <p><h3>Longitude: </h3>{{single_event.user_longitude}}</p>
-              <!-- <input id="address_list" name="address_list" type="text" value="{{event.address}}"/> -->
-              <!--<p><h3>Creator Of Event: </h3>{{event.user_info}}</p>-->
-              <!--<p><h3>Tags: </h3>{{event.tags}}</p><br></li>-->
+              <p><h3>Latitude: </h3><span class= "lats">{{single_event.user_latitude}}</span></p>
+              <p><h3>Longitude: </h3><span class= "longs">{{single_event.user_longitude}}</span></p>
+
           </div>
 
             {%  endfor %}
@@ -268,12 +272,13 @@
       // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 //prado's map
+//removed because edwards script worked on clikc
 
 function initMap() {
 
         /*Display Map */
         var uluru = {lat: 33.640495	, lng: -117.844296};
-        var map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
           center: uluru
         });
@@ -294,12 +299,12 @@ function initMap() {
         /*End of marker cuztomization*/
 
         /*This places marker to midpoint or center*/
-        var marker = new google.maps.Marker({
-        position: uluru,
-        map: map,
-        icon: pinImage,
-        shadow: pinShadow
-      });
+      //   var marker = new google.maps.Marker({
+      //   position: uluru,
+      //   map: map,
+      //   icon: pinImage,
+      //   shadow: pinShadow
+      // });
       /*End of the code for the marker of the midpoint*/
 
         /*This is specifically for markers of the user's location */
@@ -432,7 +437,9 @@ function initMap() {
       //       });
       // }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs70-evsUcwiTcuIV1S3TawOfTlce4U4o&libraries=places&callback=initMap"
         async defer></script>
+        <script  src="resources/map.js"></script>
   </body>
 </html>

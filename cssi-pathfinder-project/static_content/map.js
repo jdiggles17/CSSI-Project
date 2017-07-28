@@ -1,15 +1,15 @@
-markers = [];
-console.log("Hello is anyone there?")
-function SetCenter(center) {
-  map.setCenter(center);
-}
-
-function ClearMarkers() {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);  // Remove from map
-  }
-  markers = [];  // Empty the array
-}
+// markers = [];
+// console.log("Hello is anyone there?")
+// function SetCenter(center) {
+//   map.setCenter(center);
+// }
+//
+// function ClearMarkers() {
+//   for (var i = 0; i < markers.length; i++) {
+//     markers[i].setMap(null);  // Remove from map
+//   }
+//   markers = [];  // Empty the array
+// }
 function CenterOnCoords(e){
   ClearMarkers();  // Remove markers if any
   e.preventDefault();  // We don't want this form to reset the page.
@@ -113,12 +113,13 @@ function initialize() {
 // The google Map frame has a number of events like any other HTML element.
 // Here we set an handler to inialize the map when the map loads. You can
 // add listeners for "click", "move" and so on...
-google.maps.event.addDomListener(window, 'load', initialize);
+// google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(
   function() {
     $('.flexcontatiner').on('click', CenterOnCoords);
-    $('.flexcontatiner').on('click', CenterOnAddress);
+    //$('.flexcontatiner').on('click', CenterOnAddress);
+    $('.event').on('click', eventclicked);
     console.log("done");
   }
 );
@@ -129,3 +130,22 @@ $(document).ready(
 //     console.log("done");
 //   }
 // );
+
+
+function mapsBtn(lat, lon) {
+
+      marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lat, lon),
+      map: map,
+      // icon: pinImage2,
+      // shadow: pinShadow2
+    })
+}
+
+function eventclicked(){
+  console.log("event was clicked");
+  var lat = $(this).find(".lats").text();
+  var lon = $(this).find(".longs").text();
+  console.log(lat + " " + lon);
+  mapsBtn(lat, lon);
+}
