@@ -94,12 +94,11 @@ class MapHandler(webapp2.RequestHandler):
 
 
         event_list = Event.future_event_query(datetime.datetime.now())
-        single_event = event_list.get()
+#        single_event = event_list.get()
         list_of_events = event_list.fetch(limit = 5)
 
-
         print list_of_events
-        event_dictionary = {"event": single_event,
+        event_dictionary = {# "event": single_event,
                             "events": list_of_events
                             }
         logging.info(list_of_events)
