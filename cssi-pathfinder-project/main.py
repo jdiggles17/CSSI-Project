@@ -26,14 +26,28 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         event_list = Event.query()
         single_event = event_list.get()
-        event_dictionary = {"event": single_event}
-
-
-
+        #event_dictionary = {"event": single_event}
         template = env.get_template('events.html')
 
+
+
+        event_list = Event.future_event_query(datetime.datetime.now())
+#        single_event = event_list.get()
+        list_of_events = event_list.fetch(limit = 5)
+
+        print list_of_events
+        event_dictionary = {# "event": single_event,
+                            "events": list_of_events
+                            }
+        logging.info(list_of_events)
+        self.response.write(template.render(event_dictionary))
+
+
+
+
+
         # data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }
-        
+
         #self.response.write(master_dictionary)
         # date_and_time = datetime.datetime(2017,3,22,3,30)
         # new_event = Event(event_name = "mike's pool",date_time = date_and_time, email ="scoobydew@gmail.com",address = "3234 street name zip code", description = "here is the description", tags = ["tag1", "tag2" ,"tag3"]  )
@@ -43,7 +57,7 @@ class MainHandler(webapp2.RequestHandler):
         # self.response.write('<br>')
         # self.response.write('<br>')
         #self.response.write(new_event_key.get())
-        self.response.write(template.render(event_dictionary))
+
     def post(self):
         logging.info(self.request.get("date_test"))
         logging.info(self.request.get("time_test"))
@@ -115,7 +129,7 @@ class CreateHandler(webapp2.RequestHandler):
 
         self.response.write(template.render())
     def post(self):
-        ate_and_time = datetime.datetime(self.request.get("date_test"))
+        date_and_time = datetime.datetime(self.request.get("date_test"))
         new_event = Event(event_name = self.request.get('name_test'),date_time = date_and_time, email =self.request.get('email_test'),address = self.request.get('where_test'), description = self.request.get('where_test'), tags = ["tag1", "tag2" ,"tag3"]  )
         new_event_key = new_event.put()
         self.response.write('<br>')
