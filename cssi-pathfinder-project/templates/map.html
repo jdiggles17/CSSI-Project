@@ -38,12 +38,13 @@
 
       }
       .flex-item{
-        background-color: gray;
+        background-color: rgba(211,211,211,0.6);
+        /*background-color: gray;*/
         border: 2px solid black;
       }
       body{
         background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/88/UCI_Anteaters_logo.png');
-        padding-top: 500px;
+        padding-top: 1000px;
         background-size:500px 600px;
       }
       html, body {
@@ -137,16 +138,14 @@
           <br>
 
           <div class="flex-item">
-            <<p><h3>Event: </h3>{{single_event.event_name}}</p>
+            <p><h3>Event: </h3>{{single_event.event_name}}</p>
               <p><h3>Date: </h3>{{single_event.date_time}}</p>
               <p><h3>Contact: </h3>{{single_event.email}}</p>
               <p><h3>Address: </h3>{{single_event.address}}</p>
               <!-- <p><h3>Creator Of Event: </h3>{{user_info}}</p> -->
               <p><h3>Latitude: </h3>{{single_event.user_latitude}}</p>
               <p><h3>Longitude: </h3>{{single_event.user_longitude}}</p>
-              <!-- <input id="address_list" name="address_list" type="text" value="{{event.address}}"/> -->
-              <!--<p><h3>Creator Of Event: </h3>{{event.user_info}}</p>-->
-              <!--<p><h3>Tags: </h3>{{event.tags}}</p><br></li>-->
+
           </div>
 
             {%  endfor %}

@@ -129,3 +129,13 @@ $(document).ready(
 //     console.log("done");
 //   }
 // );
+
+
+function mapsBtn(lat, lon) {
+      marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lat, lon),
+      map: map,
+      icon: pinImage2,
+      shadow: pinShadow2
+    })
+}
