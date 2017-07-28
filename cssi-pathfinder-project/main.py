@@ -33,32 +33,7 @@ class MainHandler(webapp2.RequestHandler):
         template = env.get_template('events.html')
 
         # data = {'events':[{'event_name':'email','address','date_time':},  {'event_name':'email','event_name': 'address',''}]  }
-        dummy_dictionary = {
-                            "event_name" : "Mike's Movie Night",
-                            "date_time" : "December 24th 2017",
-                            "email" : "Mike@google.com",
-                            "address" : "superfun street 923842",
-                        #use GeoPTProperty() when gmaps is set up
-                            "user_info" : "joey@gmail.com",
-                            "description" : "This is the description",
-                            "tags" : "tags go here"
-
-                           }
-        dummy_dictionary2 = {
-                            "event_name2" : "Mike's Movie Night-2",
-                            "date_time2" : "December 24th 2017-2",
-                            "email2" : "Mike@google.com-2",
-                            "address2" : "superfun street 923842-2",
-                        #use GeoPTProperty() when gmaps is set up
-                            "user_info2" : "joey@gmail.com-2",
-                            "description2" : "This is the description-2",
-                            "tags2" : "tags go here-2"
-
-                           }
-        master_dictionary = {"":""}
-        master_dictionary.update(dummy_dictionary2)
-        master_dictionary.update(dummy_dictionary)
-
+        
         #self.response.write(master_dictionary)
         # date_and_time = datetime.datetime(2017,3,22,3,30)
         # new_event = Event(event_name = "mike's pool",date_time = date_and_time, email ="scoobydew@gmail.com",address = "3234 street name zip code", description = "here is the description", tags = ["tag1", "tag2" ,"tag3"]  )
