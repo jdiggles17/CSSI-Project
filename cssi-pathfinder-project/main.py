@@ -75,6 +75,7 @@ class MainHandler(webapp2.RequestHandler):
                                tags = ['tag1','tag2'])
         logging.info(new_event)
         new_event_key = new_event.put()
+        self.redirect("/map")
         #add query here'
 #commented out merge
         #  data_search = Event.query(Event.date_time>datetime.datetime.now()).sort("date_time")
@@ -122,6 +123,38 @@ class MapHandler(webapp2.RequestHandler):
                     new_address_record.put()
         else:
                     logging.error("Malformed Request!")
+    # def post(self):
+    #     logging.info(self.request.get("date_test"))
+    #     logging.info(self.request.get("time_test"))
+    #     d = datetime.datetime.strptime( (self.request.get("date_test")+ " " + self.request.get("time_test")), "%Y-%m-%d %H:%M" )
+    #     logging.info(d)
+    #     new_event = Event(    event_name = self.request.get('name_test'),
+    #                            date_time = d,
+    #
+    #                            email = self.request.get('email_test'),
+    #                            address = self.request.get('address_test'),
+    #                            user_latitude = float(self.request.get('latitude_test')),
+    #                            user_longitude = float(self.request.get('longitude_test')),
+    #                           # user = self.request.get('username'),
+    #                            description = self.request.get('description_test'),
+    #                            tags = ['tag1','tag2'])
+    #     logging.info(new_event)
+    #     new_event_key = new_event.put()
+    #     template = env.get_template('map.html')
+    #
+    #
+    #     event_list = Event.future_event_query(datetime.datetime.now())
+    # #        single_event = event_list.get()
+    #     list_of_events = event_list.fetch(limit = 5)
+    #
+    #     print list_of_events
+    #     event_dictionary = {# "event": single_event,
+    #                         "events": list_of_events
+    #                         }
+    #     logging.info(list_of_events)
+    #     self.response.write(template.render(event_dictionary))
+
+
 class CreateHandler(webapp2.RequestHandler):
     def get(self):
         template = env.get_template('create.html')
@@ -136,6 +169,7 @@ class CreateHandler(webapp2.RequestHandler):
         self.response.write('<br>')
         self.response.write('<br>')
         self.response.write(new_event_key.get())
+        self.response.write("Event Submitted! Click here to go to the map! <a href = ../map > </a")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
